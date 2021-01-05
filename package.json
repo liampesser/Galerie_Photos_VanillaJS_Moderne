@@ -1,0 +1,23 @@
+{
+  "name": "Galerie_Photos_VanillaJS_Moderne",
+  "version": "1.0.0",
+  "description": "Galerie_Photos_VanillaJS_Moderne",
+  "main": "src/js/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liampesser/Galerie_Photos_VanillaJS_Moderne.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/liampesser/Galerie_Photos_VanillaJS_Moderne/issues"
+  },
+  "homepage": "https://github.com/liampesser/Galerie_Photos_VanillaJS_Moderne#readme",
+  "devDependencies": {
+    "cssnano": "^4.1.10"
+  }
+}
