@@ -19,5 +19,8 @@
   "homepage": "https://github.com/liampesser/Galerie_Photos_VanillaJS_Moderne#readme",
   "devDependencies": {
     "cssnano": "^4.1.10"
+  },
+  "dependencies": {
+    "data.js": "^0.12.11"
   }
 }
