@@ -1,7 +1,7 @@
 "use strict"
 
-import images from  './data.js';
-import Gallery from './modules/Gallery.js';
+import images from  './data';
+import Gallery from './modules/Gallery';
 
 // Instanciation d'un nouvel objet de type Gallery
 new Gallery({

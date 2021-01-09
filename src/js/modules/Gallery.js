@@ -1,6 +1,7 @@
 "use strict"
 
-import Image from './Image.js';
+import Image from './Image';
+import galleryTemplate from './templates/gallery';
 
 export default class Gallery {
   constructor (data) { // new Gallery [el, images]
@@ -9,7 +10,8 @@ export default class Gallery {
     this.images = [];
     // Lancement de la méthode de chargement des données
     this.loadImages(data.images);
-    console.table(this.images);
+    this.template = galleryTemplate;
+    this.render(); // convention (affichage)
   }
 
   // Chargement des données
@@ -17,5 +19,8 @@ export default class Gallery {
     for (let image of images) { // parcourt toutes les images
       this.images.push(new Image(image)); // les transforme en objet de type image
     }
+  }
+  render() {
+    this.el.innerHTML = this.template;
   }
 }
