@@ -4,7 +4,7 @@ export default `
   <div data-slider="slider1">
      <div class="slider fullsize">
         <div class="slides">
-           <ul style="width: 500%" class="image-slide">
+           <ul style="width: 500%" class="image-slider">
 
               <!-- IMAGE DU SLIDE -->
 

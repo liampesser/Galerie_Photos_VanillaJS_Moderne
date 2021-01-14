@@ -9,11 +9,12 @@ export default class Gallery {
     this.menuListEl;
     this.index = 0;
     this.intervalTime = 3000;
-    this.h1 = this.el.querySelector('.slider-menu h1')
     this.images = []; // Pour transformer les objets en type images et leur mettre des méthodes
     this.loadImages(data.images); // Lancement de la méthode de chargement des données
     this.template = galleryTemplate;
-    this.galleryRender(); // affichage
+    this.galleryRender();
+    this.h1 = this.el.querySelector('.slider-menu h1');
+    this._displaySLide();
   }
 
   /**
@@ -27,6 +28,7 @@ export default class Gallery {
     }
   }
 
+
   // RENDER GALLERY ------------
   galleryRender() {
       this.el.innerHTML = this.template; // Intégration du template sur l'élément app
@@ -35,23 +37,31 @@ export default class Gallery {
       this.renderImgSlider();
   }
 
-  // RENDU IMAGE MENU ----------
+  // RENDER IMAGE MENU ----------
   renderImgMenu() {
     this.menuListEl = this.el.querySelector(".image-menu");
     for (let image of this.images) {
       image.menuRender();
-
-
+      // Activation du bouton du menu
+      image.menuEl.querySelector('a').onclick = (e) => {
+        this.index = image.id - 1;
+        this._displaySLide();
+      }
     }
   }
 
-  // RENDU IMAGE SLIDE ----------
+  // RENDER IMAGE SLIDER ----------
   renderImgSlider() {
-    this.sliderListEl = this.el.querySelector(".image-slide");
+    this.sliderListEl = this.el.querySelector(".image-slider");
     // Rendu des images - On demande à chacun des images de faire un render, donc de s'affciher
     for (let image of this.images) {
       image.sliderRender();
     }
+  }
+
+  _displaySLide () {
+    this.sliderListEl.style.left = "-" + this.index + "00%";
+    this.h1.innerText = this.images[this.index].alt;
   }
 
 }
