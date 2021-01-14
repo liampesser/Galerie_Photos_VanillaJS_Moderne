@@ -13,7 +13,6 @@ export default class Gallery {
     this.loadImages(data.images); // Lancement de la méthode de chargement des données
     this.template = galleryTemplate;
     this.galleryRender();
-    this.h1 = this.el.querySelector('.slider-menu h1');
     this._displaySLide();
   }
 
@@ -33,16 +32,18 @@ export default class Gallery {
   galleryRender() {
       this.el.innerHTML = this.template; // Intégration du template sur l'élément app
       // Le DOM de Gallery existe pour le navigateur
-      this.renderImgMenu();
-      this.renderImgSlider();
+
+      // Activation des éléments dynamiques
+      this.menuRender();
+      this.sliderRender();
   }
 
   // RENDER IMAGE MENU ----------
-  renderImgMenu() {
+  menuRender() {
     this.menuListEl = this.el.querySelector(".image-menu");
     for (let image of this.images) {
-      image.menuRender();
-      // Activation du bouton du menu
+      image.imageMenuRender();
+      // Activation des boutons du menu
       image.menuEl.querySelector('a').onclick = (e) => {
         this.index = image.id - 1;
         this._displaySLide();
@@ -51,15 +52,16 @@ export default class Gallery {
   }
 
   // RENDER IMAGE SLIDER ----------
-  renderImgSlider() {
+  sliderRender() {
     this.sliderListEl = this.el.querySelector(".image-slider");
     // Rendu des images - On demande à chacun des images de faire un render, donc de s'affciher
     for (let image of this.images) {
-      image.sliderRender();
+      image.imageSliderRender();
     }
   }
 
   _displaySLide () {
+    this.h1 = this.el.querySelector('.slider-menu h1');
     this.sliderListEl.style.left = "-" + this.index + "00%";
     this.h1.innerText = this.images[this.index].alt;
   }
