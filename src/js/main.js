@@ -1,6 +1,4 @@
-"use strict"
-
-import images from  './data';
+import images  from './data';
 import Gallery from './modules/Gallery';
 
 // Instanciation d'un nouvel objet de type Gallery
